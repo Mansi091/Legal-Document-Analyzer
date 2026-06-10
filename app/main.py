@@ -64,7 +64,8 @@ class ChatResponse(BaseModel):
 @app.get("/")
 async def get_root():
     return {
-        "message": "API is running"
+        "message": "Legal Document Analyzer API is running!",
+        "status": "healthy"
     }
 
 @app.post(
