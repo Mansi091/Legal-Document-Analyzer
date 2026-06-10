@@ -1,3 +1,12 @@
+---
+title: Legal Document Analyzer
+emoji: ⚖️
+colorFrom: yellow
+colorTo: gray
+sdk: docker
+app_port: 7860
+---
+
 # ⚖️ Legal Document Analyzer
 
 An AI-powered web application designed to analyze legal contracts, detect potential risks, identify missing clauses, find internal contradictions, and allow you to ask questions about the document through an interactive chatbot.
