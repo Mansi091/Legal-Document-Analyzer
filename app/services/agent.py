@@ -38,8 +38,8 @@ def analyze_contract_agent(contract_text: str, user_api_key: str = None) -> Dict
                     "clause_type": "limitation_of_liability",
                     "section": "10. Limitation of Liability",
                     "severity": "High",
-                    "explanation": "Caps vendor's liability at $5,000, which is extremely low for SaaS subscriptions.",
-                    "text_found": "Vendor's total liability under this Agreement shall not exceed $5,000 under any circumstances."
+                    "explanation": "Caps vendor's liability at ₹5,00,000, which is extremely low for SaaS subscriptions.",
+                    "text_found": "Vendor's total liability under this Agreement shall not exceed ₹5,00,000 under any circumstances."
                 },
                 {
                     "clause_type": "termination_and_renewal",
@@ -60,7 +60,7 @@ def analyze_contract_agent(contract_text: str, user_api_key: str = None) -> Dict
             "contradictions": [
                 {
                     "sections_involved": ["Section 5. IP Rights", "Section 10. Limitation of Liability"],
-                    "explanation": "Section 5 specifies unlimited IP indemnification, but Section 10 caps total liability at $5,000, creating a conflict."
+                    "explanation": "Section 5 specifies unlimited IP indemnification, but Section 10 caps total liability at ₹5,00,000, creating a conflict."
                 }
             ],
             "logs": logs
@@ -173,12 +173,12 @@ def chat_about_contract(
                     return "Based on the demo analysis, the following missing clauses were detected:\n" + "\n".join(clauses)
             return "Based on the demo contract, the confidentiality clause is missing."
         if "liability" in msg_lower or "cap" in msg_lower:
-            return "Based on the demo contract, Section 10 caps the vendor's liability at $5,000. This is unfavorable to the customer compared to the standard requirement, which proposes a cap representing at least 12 months of paid fees."
+            return "Based on the demo contract, Section 10 caps the vendor's liability at ₹5,00,000. This is unfavorable to the customer compared to the standard requirement, which proposes a cap representing at least 12 months of paid fees."
         if "renewal" in msg_lower or "termination" in msg_lower or "terminate" in msg_lower:
             return "Based on the demo contract, Clause 8 specifies an automatic renewal of the term. It requires a 90-day prior written notice to prevent renewal, which is flagged as a renewal trap (the industry standard is 30 days)."
         if "indemnity" in msg_lower or "indemnify" in msg_lower or "intellectual property" in msg_lower or "ip" in msg_lower:
-            return "Section 5 of the contract covers IP Rights, and Section 11 states that the vendor's IP indemnification obligations are unlimited. However, this contradicts Section 10's overall $5,000 cap."
-        return "This is a simulated response (Demo Mode). I can answer questions about the demo contract's liability caps ($5,000 limit), renewal terms (90-day auto-renewal notice), and IP contradictions."
+            return "Section 5 of the contract covers IP Rights, and Section 11 states that the vendor's IP indemnification obligations are unlimited. However, this contradicts Section 10's overall ₹5,00,000 cap."
+        return "This is a simulated response (Demo Mode). I can answer questions about the demo contract's liability caps (₹5,00,000 limit), renewal terms (90-day auto-renewal notice), and IP contradictions."
 
     # Live Mode
     # Truncate contract text if it is too long to fit into Groq's low free-tier token limits (TPM: 6000)
