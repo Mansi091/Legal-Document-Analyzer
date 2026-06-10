@@ -31,8 +31,15 @@ Designed with API rate limits (e.g., Groq's low free-tier Token-Per-Minute bound
 ---
 
 ## 🛠️ Tech Stack
-* **Backend**: FastAPI, LangChain, Groq LLM (Llama 3)
-* **Frontend**: React (Vite), Vanilla CSS
+
+| Component | Technology | Role |
+| :--- | :--- | :--- |
+| **Backend API** | **FastAPI** (Python) | High-performance asynchronous endpoint handler |
+| **LLM Engine** | **Groq Cloud** (Llama 3.1 8B) | Hardware-accelerated, sub-second AI inference |
+| **Orchestration** | **LangChain** | prompt chaining, history management, and LLM schemas |
+| **Frontend UI** | **React.js** (Vite) | Fast-building single page application |
+| **PDF Parser** | **pdfplumber** | Accurate textual data extraction from document layers |
+| **Styling** | **Vanilla CSS** | Premium custom design system with custom tokens |
 
 ---
 
