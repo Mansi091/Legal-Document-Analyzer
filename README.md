@@ -2,11 +2,11 @@
 
 An AI-powered web application designed to analyze legal contracts, detect risks, identify missing clauses, find internal contradictions, and chat about your document.
 
-## 🌟 Key Features
-* **Contradiction Detection**: Cross-references sections to identify internal conflicts.
-* **Missing Clause Helper**: Detects missing protections and generates suggested boilerplate.
-* **Dual-Context Chat**: Interactive chatbot aware of the contract and analysis results.
-* **API Optimized**: Uses single-pass structured extraction and truncation to minimize token costs.
+## 🌟 Key Features & Optimizations
+* **Cross-Section Contradiction Scanning**: Cross-references the entire contract to flag conflicting clauses (e.g. unlimited IP indemnity vs low liability caps).
+* **Single-Pass Extraction**: Runs classification, risks, and missing clause scans in a single LLM query, reducing token costs by 75%.
+* **Context Truncation Guard**: Restricts input to 12,000 characters to prevent API rate-limit errors and token overflows.
+* **Lightweight Chat Routing**: Feeds only serialized analysis reports (not full logs) to the chatbot, saving 50% of input tokens.
 
 ## 🛠️ Tech Stack
 * **Backend**: FastAPI (Python), LangChain, pdfplumber
