@@ -6,7 +6,8 @@ import os
 
 from app.config import settings
 from app.services.pdf_processor import extract_text_from_pdf
-from app.services.agent import analyze_contract_agent, chat_about_contract
+from app.services.contract_analyzer import analyze_contract as analyze_contract_service
+from app.services.contract_chat import chat_about_contract
 
 app = FastAPI(
     title="Legal Document Analyzer",
@@ -90,7 +91,7 @@ async def analyze_contract(
             file_bytes
         )
 
-        analysis_result = analyze_contract_agent(
+        analysis_result = analyze_contract_service(
             contract_text
         )
 
