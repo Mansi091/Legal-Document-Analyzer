@@ -1,4 +1,4 @@
-# ⚖️ LexGenie
+# ⚖️ LexiGenie
 
 An intelligent legal contract review assistant designed to detect risks, highlight missing clauses, identify internal contradictions, and chat dynamically with your legal documents.
 
