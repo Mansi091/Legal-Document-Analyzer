@@ -110,7 +110,7 @@ export default function App() {
   return (
     <div className={`container ${report ? 'has-report' : ''}`}>
       <header className="title-header">
-        <h1>⚖️ Legal Contract Reviewer</h1>
+        <h1>⚖️ LexiGenie</h1>
         <p>Upload a contract PDF to begin.</p>
       </header>
 
