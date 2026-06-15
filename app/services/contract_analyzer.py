@@ -96,11 +96,29 @@ def analyze_contract(contract_text: str, user_api_key: str = None):
     )
 
     try:
+        import time
+        start_time = time.time()
+        
         logs.append("Sending contract text to LLM for comprehensive review...")
         response = llm.invoke([
             SystemMessage(content=prompt),
             HumanMessage(content=safe_contract_text)
         ])
+        
+        latency_seconds = time.time() - start_time
+        token_usage = response.response_metadata.get("token_usage", {})
+        prompt_tokens = token_usage.get("prompt_tokens", 0)
+        completion_tokens = token_usage.get("completion_tokens", 0)
+        total_tokens = token_usage.get("total_tokens", 0)
+        
+        # Calculate cost based on Groq Llama 3.1 8B pricing: $0.05/1M input, $0.08/1M output
+        input_cost = (prompt_tokens / 1_000_000) * 0.05
+        output_cost = (completion_tokens / 1_000_000) * 0.08
+        total_cost = input_cost + output_cost
+        
+        logs.append(f"LLM Latency: {latency_seconds:.2f}s")
+        logs.append(f"Tokens: {prompt_tokens} input, {completion_tokens} output (Total: {total_tokens})")
+        logs.append(f"Estimated API Cost: ${total_cost:.6f} USD")
         
         response_text = response.content.strip()
         
