@@ -154,9 +154,6 @@ export default function App() {
       {loading && (
         <div className="loader-box">
           <div className="spinner"></div>
-          <p style={{ color: 'var(--text-muted)', fontWeight: '500' }}>
-            AI Review Agent is analyzing your contract... Please wait.
-          </p>
         </div>
       )}
 
