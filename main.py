@@ -1,5 +1,5 @@
 def main():
-    print("Hello from legal-document-analyzer!")
+    print("Hello from LexiGenie!")
 
 
 if __name__ == "__main__":

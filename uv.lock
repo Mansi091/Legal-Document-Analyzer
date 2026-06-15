@@ -482,7 +482,7 @@ wheels = [
 ]
 
 [[package]]
-name = "legal-document-analyzer"
+name = "lexigenie"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
